@@ -1,5 +1,5 @@
 h1 {
-  font-weight: 400;
+  font-weight: 450;
   font-size: 40px;
   margin-bottom: 22px;
   margin-top: 0px;
@@ -8,15 +8,21 @@ h1 {
 h2 {
   margin-top: 10px;
   margin-bottom: 10px;
-  font-weight: 50;
   color: #70757a;
-  font-size: 6px;
   line-height: 20px;
 }
 
 .town {
   margin-top: 30px;
   margin-bottom: 0px;
+}
+
+.date {
+  font-size: 20px;
+}
+
+.degree {
+  font-size: 20px;
 }
 img {
   max-width: 100%;
@@ -34,5 +40,13 @@ img {
   border: 1px solid #dadde1;
   border-radius: 5px;
   font-family: "Nunito", "Roboto", sans-serif;
-  
+}
+
+li {
+  list-style: none;
+  font-size: 15px;
+}
+ul {
+  padding: 20px;
+  color: #70757a;
 }

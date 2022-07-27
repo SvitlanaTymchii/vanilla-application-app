@@ -3,6 +3,11 @@ body {
   margin: 20px 20px;
 }
 
+p {
+  font-family: Google Sans, arial, sans-serif;
+  font-weight: 400;
+}
+
 h1 {
   font-size: 40px;
   margin-bottom: 22px;
@@ -40,4 +45,5 @@ big-text {
   margin: 30px auto;
   padding: 20px;
   border: 1px solid #dadde1;
+  border-radius: 5px;
 }

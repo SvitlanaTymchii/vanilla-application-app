@@ -1,2 +1,32 @@
+body {
+  font-family: "Nunito", "Roboto", sans-serif;
+  margin: 20px 20px;
+}
+
 h1 {
+  font-size: 40px;
+  margin-bottom: 22px;
+  margin-top: 0px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 100;
+}
+
+.town {
+  font-size: 40px;
+  margin-top: 30px;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+img {
+  max-width: 100%;
+}
+
+big-text {
+  font-size: 466px;
+  text-align: left;
 }

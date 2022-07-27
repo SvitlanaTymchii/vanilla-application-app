@@ -33,6 +33,7 @@ big-text {
 .container {
   padding: 0;
   text-align: left;
+  color: red;
 }
 
 .weather-app {

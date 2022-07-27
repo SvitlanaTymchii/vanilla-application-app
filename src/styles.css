@@ -1,5 +1,4 @@
 h1 {
-  font-family: Google Sans, arial, sans-serif;
   font-weight: 400;
   font-size: 40px;
   margin-bottom: 22px;
@@ -9,9 +8,9 @@ h1 {
 h2 {
   margin-top: 10px;
   margin-bottom: 10px;
-  font-weight: 100;
+  font-weight: 50;
   color: #70757a;
-  font-size: 16px;
+  font-size: 6px;
   line-height: 20px;
 }
 
@@ -23,10 +22,6 @@ img {
   max-width: 100%;
 }
 
-big-text {
-  font-size: 466px;
-  text-align: left;
-}
 .container {
   padding: 0;
   text-align: left;
@@ -38,4 +33,6 @@ big-text {
   padding: 20px;
   border: 1px solid #dadde1;
   border-radius: 5px;
+  font-family: "Nunito", "Roboto", sans-serif;
+  
 }

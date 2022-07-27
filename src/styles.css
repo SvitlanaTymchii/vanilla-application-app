@@ -35,3 +35,6 @@ big-text {
   text-align: left;
 }
 
+.weather-app {
+  max-width: 600 px;
+}

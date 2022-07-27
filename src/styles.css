@@ -30,3 +30,8 @@ big-text {
   font-size: 466px;
   text-align: left;
 }
+.container {
+  padding: 0;
+  text-align: left;
+}
+

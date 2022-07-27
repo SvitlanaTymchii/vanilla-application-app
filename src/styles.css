@@ -36,5 +36,6 @@ big-text {
 }
 
 .weather-app {
-  max-width: 400 px;
+  max-width: 60%;
+  color: blue;
 }

@@ -69,3 +69,7 @@ ul {
   padding: 20px;
   color: #70757a;
 }
+
+img {
+  display: block;
+}

@@ -23,10 +23,22 @@ h2 {
   margin-bottom: 20px;
 }
 
+.currentTemperature {
+  font-weight: 200;
+  font-size: 40px;
+  margin-bottom: 22px;
+  margin-top: 22px;
+}
+
 .units {
   font-size: 15px;
   position: relative;
-  top: -10px;
+  top: -34px;
+}
+
+.description {
+  font-size: 18px;
+  margin-bottom: 15px;
 }
 img {
   max-width: 100%;

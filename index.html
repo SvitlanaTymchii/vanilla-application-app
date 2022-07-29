@@ -31,20 +31,43 @@
     <div class="container">
       <div class="weather-app-wrapper">
         <div class="weather-app">
+          <form id="search-form" class="mb-5">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="cityname"
+                  id="cityname-input"
+                  placeholder="Enter cityname"
+                  required
+                  class="form-control"
+                />
+              </div>
+              <div class="col-1">
+                <input
+                  type="submit"
+                  class="btn btn-primary"
+                  value="Search"
+                  id="current-search"
+                />
+              </div>
+            </div>
+          </form>
+
           <h1 class="town" id="current-location">Lisboa</h1>
           <h2 class="date" id="current-date">Wednesday, July, 27, 12:50</h2>
           <div class="row">
             <div class="col-5">
               <img src="images/sunny.png" id="icon" alt="sunny" />
-              <h1 id="current-temperature">
-                25 <span class="units">°C | °F</span>
-              </h1>
-              <h2 class="date" id="description">Clear</h2>
+              <strong id="current-temperature" class="currentTemperature"
+                >25</strong
+              >
+              <span class="units">°C | °F</span>
+
+              <h2 class="description" id="description">Clear</h2>
             </div>
 
             <div class="col-5">
               <ul>
-                <li>Precipitation: 0%</li>
                 <li>Humidity: <span id="humidity">73%</span></li>
                 <li>Wind: <span id="speed">2km/h</span></li>
               </ul>

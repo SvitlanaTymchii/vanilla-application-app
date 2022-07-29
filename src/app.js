@@ -48,7 +48,7 @@ function showTemperatureLocation(response) {
   let speed = document.querySelector("#speed");
   let iconElement = document.querySelector("#icon");
 
-  currentTemperature.innerHTML = `${Math.round(response.data.main.temp)} °C`;
+  currentTemperature.innerHTML = `${Math.round(response.data.main.temp)} `;
   currentLocation.innerHTML = `${response.data.name}`;
   descriptionElement.innerHTML = `${response.data.weather[0].description}`;
   humidity.innerHTML = `${response.data.main.humidity}%`;
@@ -61,8 +61,27 @@ function showTemperatureLocation(response) {
 }
 
 let apiKey = "92dec7e2931d37f76f7ea0cca649963a";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Kiev&appid=${apiKey}&units=metric`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Sydney&appid=${apiKey}&units=metric`;
 console.log(apiUrl);
 
 //let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(`${apiUrl}`).then(showTemperatureLocation);
+
+// пошук по натисканню кнопки Search
+function city(position) {
+  let cityName = document.querySelector("#cityname-input");
+  let city = cityName.value;
+  console.log(`${city}`);
+  //let apiKey = "92dec7e2931d37f76f7ea0cca649963a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}`).then(showTemperatureLocation);
+}
+
+//form
+function stopClear(event) {
+  event.preventDefault(); //вже не перезавантажується сторінка
+  navigator.geolocation.getCurrentPosition(city);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", stopClear); // шукаємо сабміт форми

@@ -27,7 +27,6 @@ let month = [
 let now = new Date(); // нова змінна формату дати
 
 let currentDate = document.querySelector("#current-date"); //шукаємо, де її розмістити
-//console.log(currentDate);
 let currentDay = days[now.getDay()];
 let currentMonth = month[now.getMonth()];
 let currentDat = now.getDate();
@@ -38,3 +37,23 @@ if (currentMin < 10) {
 }
 currentDate.innerHTML = `${currentDay}, ${currentMonth}, ${currentDat}, 
 ${currentHours}:${currentMin}  `;
+
+// current temperature
+
+function showTemperatureLocation(response) {
+  //функція виводить температуру по поточній локації (координати чи назва міста)
+  let currentTemperature = document.querySelector("#current-temperature");
+  currentTemperature.innerHTML = `${Math.round(response.data.main.temp)} °C`;
+  let currentLocation = document.querySelector("#current-location");
+  currentLocation.innerHTML = `${response.data.name}`;
+  console.log(response.data);
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = `${response.data.weather[0].description}`;
+}
+
+let apiKey = "92dec7e2931d37f76f7ea0cca649963a";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}&units=metric`;
+console.log(apiUrl);
+
+//let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+axios.get(`${apiUrl}`).then(showTemperatureLocation);

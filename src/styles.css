@@ -10,6 +10,7 @@ h2 {
   margin-bottom: 10px;
   color: #70757a;
   line-height: 20px;
+  text-transform: capitalize;
 }
 
 .town {

@@ -87,3 +87,19 @@ start("New York");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search); // шукаємо сабміт форми
+
+//--------------------------------------------------
+
+// пошук по натисканню кнопки Current Location
+
+function currentLocationTemperature(position) {
+  let currentLatitude = position.coords.latitude;
+  let currentLongitude = position.coords.longitude;
+  let apiKey = "92dec7e2931d37f76f7ea0cca649963a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}`).then(showAll);
+}
+
+//let buttonCurrentLocation = document.querySelector("#currentLocation");
+//console.log(buttonCurrentLocation);
+//buttonCurrentLocation.addEventListener("click", showAll);

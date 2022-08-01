@@ -106,6 +106,9 @@ buttonCurrentLocation.addEventListener("click", currentLocation);
 function displayFahrenhaitTemperature(event) {
   event.preventDefault(); //зупиняємо поведінку по замовчуванням()
   let temperatureElement = document.querySelector("#current-temperature");
+  //remove the active class the celsius link
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let fahrenhaitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenhaitTemperature);
 }
@@ -114,6 +117,9 @@ fahrenheitLink.addEventListener("click", displayFahrenhaitTemperature);
 
 function displayCelsiusTemperature(event) {
   event.preventDefault();
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+
   let temperatureElement = document.querySelector("#current-temperature");
 
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
@@ -121,12 +127,3 @@ function displayCelsiusTemperature(event) {
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
-
-/*active {
-  color: black;
-  cursor: default;
-}
-.active:hover {
-  cursor: pointer;
-}
-*/

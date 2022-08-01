@@ -37,8 +37,13 @@ h2 {
 }
 
 .active{
-    color: black
+    color: black;
+    cursor: default;
 
+}
+
+.active:hover{
+    text-decoration :none;
 }
 
 

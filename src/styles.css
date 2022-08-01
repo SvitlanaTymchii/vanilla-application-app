@@ -31,7 +31,9 @@ h2 {
 }
 
 .units {
-  font-size: 20px;
+  font-size: 18px;
+  position: relative;
+  top: -28px;
 }
 
 .description {
@@ -70,4 +72,12 @@ ul {
 
 img {
   display: block;
+}
+
+.active {
+  color: black;
+  cursor: default;
+}
+.active:hover {
+  cursor: pointer;
 }

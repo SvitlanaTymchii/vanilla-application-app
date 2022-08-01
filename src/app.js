@@ -38,6 +38,7 @@ currentDate.innerHTML = `${currentDay}, ${currentMonth}, ${currentDat},
 ${currentHours}:${currentMin}  `;
 
 // current temperature
+let celsiusTemperature = null;
 
 function showAll(response) {
   //функція виводить температуру по поточній локації (координати чи назва міста)
@@ -48,7 +49,9 @@ function showAll(response) {
   let speed = document.querySelector("#speed"); // елемент куди виводиться швидкість вітру
   let iconElement = document.querySelector("#icon"); // картинка погоди
 
-  currentTemperature.innerHTML = `${Math.round(response.data.main.temp)}° `; // підхоплюємо з АПІ температуру і виводимо
+  celsiusTemperature = response.data.main.temp;
+
+  currentTemperature.innerHTML = `${Math.round(celsiusTemperature)}`; // підхоплюємо з АПІ температуру і виводимо
   currentLocation.innerHTML = `${response.data.name}`; // підтягуємо з бази назву міста
   descriptionElement.innerHTML = `${response.data.weather[0].description}`; // витягуємо опис погоди
   humidity.innerHTML = `${response.data.main.humidity}%`; // витягуємо і друкуємо про вологість
@@ -61,15 +64,6 @@ function showAll(response) {
   //????? Чи коректно тут працюэ альт????
 }
 
-// пошук по натисканню кнопки Search
-/*function cityPos(position) {
-  let cityName = document.querySelector("#cityname-input");
-  let city = cityName.value;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(`${apiUrl}`).then(showAll);
-}*/
-
-//form
 function search(event) {
   event.preventDefault(); //вже не перезавантажується сторінка
   let cityName = document.querySelector("#cityname-input");
@@ -92,14 +86,41 @@ form.addEventListener("submit", search); // шукаємо сабміт форм
 
 // пошук по натисканню кнопки Current Location
 
-function currentLocationTemperature(position) {
+function retrievePosition(position) {
+  let apiKey = "92dec7e2931d37f76f7ea0cca649963a";
+
   let currentLatitude = position.coords.latitude;
   let currentLongitude = position.coords.longitude;
-  let apiKey = "92dec7e2931d37f76f7ea0cca649963a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${apiKey}&units=metric`;
   axios.get(`${apiUrl}`).then(showAll);
 }
+function currentLocation(position) {
+  navigator.geolocation.getCurrentPosition(retrievePosition);
+}
 
-//let buttonCurrentLocation = document.querySelector("#currentLocation");
-//console.log(buttonCurrentLocation);
-//buttonCurrentLocation.addEventListener("click", showAll);
+let buttonCurrentLocation = document.querySelector("#currentLocation");
+buttonCurrentLocation.addEventListener("click", currentLocation);
+
+// перевід в фарегейти
+
+function displayFahrenhaitTemperature(event) {
+  event.preventDefault(); //зупиняємо поведінку по замовчуванням()
+  //celsiusLink.classList.remove("active");
+  //fahrenhaitLink.classList.add("active");
+
+  let temperatureElement = document.querySelector("#current-temperature");
+  let fahrenhaitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenhaitTemperature);
+}
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenhaitTemperature);
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temperature");
+
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);

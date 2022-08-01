@@ -88,7 +88,6 @@ form.addEventListener("submit", search); // шукаємо сабміт форм
 
 function retrievePosition(position) {
   let apiKey = "92dec7e2931d37f76f7ea0cca649963a";
-  alert("Hello2");
 
   let currentLatitude = position.coords.latitude;
   let currentLongitude = position.coords.longitude;
@@ -97,7 +96,6 @@ function retrievePosition(position) {
 }
 function currentLocation(position) {
   navigator.geolocation.getCurrentPosition(retrievePosition);
-  alert("Hello1");
 }
 
 let buttonCurrentLocation = document.querySelector("#currentLocation");

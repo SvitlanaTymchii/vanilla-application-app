@@ -36,6 +36,10 @@ h2 {
   top: -28px;
 }
 
+.active{
+    color: black
+}
+
 .description {
   font-size: 18px;
   margin-bottom: 15px;
@@ -74,10 +78,4 @@ img {
   display: block;
 }
 
-.active {
-  color: black;
-  cursor: default;
-}
-.active:hover {
-  cursor: pointer;
-}
+.

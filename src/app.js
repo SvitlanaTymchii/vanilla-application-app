@@ -88,6 +88,7 @@ form.addEventListener("submit", search); // шукаємо сабміт форм
 
 function retrievePosition(position) {
   let apiKey = "92dec7e2931d37f76f7ea0cca649963a";
+  alert("Hello");
 
   let currentLatitude = position.coords.latitude;
   let currentLongitude = position.coords.longitude;
@@ -105,9 +106,6 @@ buttonCurrentLocation.addEventListener("click", currentLocation);
 
 function displayFahrenhaitTemperature(event) {
   event.preventDefault(); //зупиняємо поведінку по замовчуванням()
-  //celsiusLink.classList.remove("active");
-  //fahrenhaitLink.classList.add("active");
-
   let temperatureElement = document.querySelector("#current-temperature");
   let fahrenhaitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenhaitTemperature);
@@ -124,3 +122,12 @@ function displayCelsiusTemperature(event) {
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+/*active {
+  color: black;
+  cursor: default;
+}
+.active:hover {
+  cursor: pointer;
+}
+*/

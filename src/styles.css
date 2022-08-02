@@ -39,6 +39,7 @@ h2 {
 .active {
   color: black;
   cursor: default;
+  text-decoration: none;
 }
 
 .active:hover {
@@ -81,9 +82,4 @@ ul {
 
 img {
   display: block;
-}
-
-a {
-  color: red;
-  text-decoration: none;
 }

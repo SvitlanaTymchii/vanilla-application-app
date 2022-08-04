@@ -86,12 +86,12 @@ img {
 
 .weather-forecast {
   margin-top: 20px;
-  text-align: center;
+ /* text-align: center;*/
 }
 
 .weather-forecast-date {
   font-size: 16 px;
-  color: rgb(85, 85, 214);
+  color: rgb(61, 61, 63);
 }
 
 .weather-forecast-temperatures {

@@ -40,6 +40,15 @@ ${currentHours}:${currentMin}  `;
 // current temperature
 let celsiusTemperature = null;
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showAll(response) {
   //функція виводить температуру по поточній локації (координати чи назва міста)
   let currentTemperature = document.querySelector("#current-temperature"); //знаходим на сторінці елемент  для виведення температури
@@ -62,6 +71,8 @@ function showAll(response) {
   );
   iconElement.setAttribute("alt", ` response.data.weather[0].description`); // і те саме робимо з описом
   //????? Чи коректно тут працюэ альт????
+
+  getForecast(response.data.coord); // для прогнозу погоди
 }
 
 function search(event) {
@@ -127,3 +138,45 @@ function displayCelsiusTemperature(event) {
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+//week
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let days = ["Thu", "Fri", "Sat", "Sun"]; // масив днів тижня
+  let forecastElement = document.querySelector("#forecast"); // знаходим контейнер для розміщення прогнозу погоди
+  let forecastHTML = `<div class = "row">`; // розміщуємо всередині контейнера ряд
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML + // додаємо в цей ряд для кожого елемента дня тижня
+      `    
+        <div class = "col-2"> 
+
+                <div class = "weather-forecast-date">
+                    ${day}
+                </div>
+
+                <img 
+                    src="http://openweathermap.org/img/wn/01d@2x.png" 
+                    alt=""  
+                    width = "36"
+                />
+
+                <div class = "weather-forecast-temperatures">
+                  <span class = "weather-forecast-temperature-max">18</span> 
+                  <span class = "weather-forecast-temperature-min">12</span>
+                </div>
+
+             
+            </div>`;
+  });
+
+  forecastHTML = forecastHTML + ` </div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
+
+/*
+
+*/

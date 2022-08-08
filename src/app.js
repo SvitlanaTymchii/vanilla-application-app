@@ -162,7 +162,7 @@ function displayForecast(response) {
   let forecastHTML = `<div class = "row">`; // розміщуємо всередині контейнера ряд
 
   forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    if ((index > 0) & (index < 6)) {
       forecastHTML =
         forecastHTML + // додаємо в цей ряд для кожого елемента дня тижня
         `    
@@ -170,7 +170,9 @@ function displayForecast(response) {
 
                 <div class="weather-forecast-date">
                     ${formatDay(forecastDay.dt)}
-                </div>
+
+
+                    </div>
 
                 <img
                      src="http://openweathermap.org/img/wn/${
